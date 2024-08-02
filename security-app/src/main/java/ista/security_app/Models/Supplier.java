@@ -30,7 +30,4 @@ public class Supplier {
     private String email;
 
     private String coin;
-
-    @ManyToMany(mappedBy = "suppliers")
-    private Set<Product> estudiantes = new HashSet<>();
 }

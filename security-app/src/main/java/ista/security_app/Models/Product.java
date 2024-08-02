@@ -34,11 +34,8 @@ public class Product {
     @JoinColumn(name = "classification_id", referencedColumnName ="classification_id")
     private Clasification classification;
 
-    @ManyToMany
-    @JoinTable(
-        name = "produc_supplier",
-        joinColumns = @JoinColumn(name = "product_id"),
-        inverseJoinColumns = @JoinColumn(name = "supplier_id")
-    )
-    private Set<Supplier> suppliers = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "supplier_id", referencedColumnName ="supplier_id")
+    private Supplier supplier;
+
 }
