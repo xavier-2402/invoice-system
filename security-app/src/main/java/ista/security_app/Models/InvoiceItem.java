@@ -19,9 +19,6 @@ public class InvoiceItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int invoiceItemId;
 
-    @Column(name = "invoice_id")
-    private int invoiceId;
-
     private int quantity;
     private Double price; 
     private Double subtotal;
@@ -29,5 +26,9 @@ public class InvoiceItem {
     @ManyToOne
     @JoinColumn(name="product_id", referencedColumnName ="product_id")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name="invoice_id", referencedColumnName ="invoice_id")
+    private Invoice invoice;
 
 }
