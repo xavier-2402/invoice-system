@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,7 @@ public class RoleController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Role> add(Role role){
+    public ResponseEntity<Role> add( @RequestBody Role role){
         return new ResponseEntity<>(service.add(role), HttpStatus.OK);
     }
 
@@ -44,7 +45,7 @@ public class RoleController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Role> update(int id, Role role){
+    public ResponseEntity<Role> update(int id,@RequestBody Role role){
         return new ResponseEntity<>(service.update(id,role),HttpStatus.OK);
     }
 

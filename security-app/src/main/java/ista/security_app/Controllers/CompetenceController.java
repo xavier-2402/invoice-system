@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class CompetenceController {
     }
 
      @PostMapping("/add")
-    public ResponseEntity<Competence> add(Competence competence){
+    public ResponseEntity<Competence> add(@RequestBody Competence competence){
         return new ResponseEntity<>(service.add(competence), HttpStatus.OK);
     }
 
@@ -43,7 +44,7 @@ public class CompetenceController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Competence> update(int id, Competence competence){
+    public ResponseEntity<Competence> update(int id,@RequestBody Competence competence){
         return new ResponseEntity<>(service.update(id,competence),HttpStatus.OK);
     }
     

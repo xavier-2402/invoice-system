@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class SupplierController {
     }
 
      @PostMapping("/add")
-    public ResponseEntity<Supplier> add(Supplier supplier){
+    public ResponseEntity<Supplier> add(@RequestBody Supplier supplier){
         return new ResponseEntity<>(service.add(supplier), HttpStatus.OK);
     }
 
@@ -43,7 +44,7 @@ public class SupplierController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Supplier> update(int id, Supplier supplier){
+    public ResponseEntity<Supplier> update(int id,@RequestBody Supplier supplier){
         return new ResponseEntity<>(service.update(id,supplier),HttpStatus.OK);
     }
 
